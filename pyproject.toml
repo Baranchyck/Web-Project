@@ -1,0 +1,18 @@
+[project]
+name = "web-project"
+version = "0.1.0"
+description = "Веб-застосунок для трудомістких обчислень з балансуванням навантаження"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "alembic>=1.20.1",
+    "fastapi",
+    "pydantic>=2.14.3",
+    "sqlalchemy>=2.1.8",
+    "uvicorn[standard,standart]",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.17.4",
+]

@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Віртуальне оточення
+.venv/
+
+# Секрети та локальні налаштування
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Сертифікати nginx
+nginx/certs/
+
+# dev 
+.ruff_cache
+.mypy_cache
+
+# docs
+PLAN.md
