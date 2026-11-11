@@ -31,6 +31,7 @@ async def register(data: Credentials, response: Response, session: SessionDep) -
     try:
         await session.commit()
     except IntegrityError:
+        await session.rollback()
         raise HTTPException(
             status.HTTP_409_CONFLICT, "Користувач з таким іменем уже існує"
         ) from None

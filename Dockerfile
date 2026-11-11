@@ -12,7 +12,13 @@ ENV UV_PROJECT_ENVIRONMENT=/opt/venv \
 
 # Спершу лише файли залежностей: цей шар кешується, доки вони не змінились
 COPY pyproject.toml uv.lock ./
-RUN uv sync --frozen --no-dev --no-install-project
+# Для розробки (INSTALL_DEV=true) ставимо ще й pytest та ruff
+ARG INSTALL_DEV=false
+RUN if [ "$INSTALL_DEV" = "true" ]; then \
+        uv sync --frozen --no-install-project; \
+    else \
+        uv sync --frozen --no-install-project --no-dev; \
+    fi
 
 COPY app ./app
 COPY alembic.ini ./
